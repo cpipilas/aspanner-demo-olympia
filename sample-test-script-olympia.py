@@ -71,7 +71,7 @@ def test_measure_power_consumption():
     print("Disconnecting Power")
     testboard.digitalWrite(MAINS_RELAY_PIN, 'LOW')
 
-    print("Measuring Voltage & Current with both Power Disconnected")
+    print("Measuring Voltage & Current with Power Disconnected")
     print("Bus Voltage:")
     print(testboard.ina219_getValue(INA219.BUS_VOLTAGE_V))
     time.sleep(1)
