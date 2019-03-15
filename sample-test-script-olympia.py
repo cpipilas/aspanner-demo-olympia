@@ -50,7 +50,7 @@ def test_measure_power_consumption():
     print("")
     testboard.digitalWrite(MAINS_RELAY_PIN, 'HIGH')
     testboard.digitalWrite(BATTERY_RELAY_PIN, 'HIGH')
-    time.sleep(1)
+    time.sleep(5)
 
     INA219 = SpannerTestboard.INA219
     time.sleep(1)
@@ -70,6 +70,7 @@ def test_measure_power_consumption():
 
     print("Disconnecting Power")
     testboard.digitalWrite(MAINS_RELAY_PIN, 'LOW')
+    time.sleep(2)
 
     print("Measuring Voltage & Current with Power Disconnected")
     print("Bus Voltage:")
@@ -84,4 +85,4 @@ def test_measure_power_consumption():
     testboard.digitalWrite(MAINS_RELAY_PIN, 'HIGH')
     time.sleep(1)
 
-    assert True == True
+    assert True
