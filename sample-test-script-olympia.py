@@ -58,15 +58,21 @@ def test_measure_power_consumption():
 
     print("Measuring Voltage & Current with both Power and Battery Connected")
     print("Bus Voltage:")
-    print(testboard.ina219_getValue(INA219.BUS_VOLTAGE_V))
+    voltage = testboard.ina219_getValue(INA219.BUS_VOLTAGE_V)
+    print(voltage)
     time.sleep(1)
     print("Shunt Voltage:")
-    print(testboard.ina219_getValue(INA219.SHUNT_VOLTAGE_MV))
+    shunt_voltage = testboard.ina219_getValue(INA219.SHUNT_VOLTAGE_MV)
+    print(shunt_voltage)
     time.sleep(1)
     print("Current consumption (mA):")
-    print(testboard.ina219_getValue(INA219.CURRENT_MA))
+    current = testboard.ina219_getValue(INA219.CURRENT_MA)
+    print(current)
     time.sleep(1)
 
+    assert voltage < 4.6
+    assert current > -160
+    assert current < -90
 
     print("Disconnecting Power")
     testboard.digitalWrite(MAINS_RELAY_PIN, 'LOW')
@@ -74,15 +80,20 @@ def test_measure_power_consumption():
 
     print("Measuring Voltage & Current with Power Disconnected")
     print("Bus Voltage:")
-    print(testboard.ina219_getValue(INA219.BUS_VOLTAGE_V))
+    voltage = testboard.ina219_getValue(INA219.BUS_VOLTAGE_V)
+    print(voltage)
     time.sleep(1)
     print("Shunt Voltage:")
-    print(testboard.ina219_getValue(INA219.SHUNT_VOLTAGE_MV))
+    shunt_voltage = testboard.ina219_getValue(INA219.SHUNT_VOLTAGE_MV)
+    print(shunt_voltage)
     time.sleep(1)
     print("Current consumption (mA):")
-    print(testboard.ina219_getValue(INA219.CURRENT_MA))
+    current = testboard.ina219_getValue(INA219.CURRENT_MA)
+    print(current)
+
+    assert current > 100
+    assert current < 400
 
     testboard.digitalWrite(MAINS_RELAY_PIN, 'HIGH')
     time.sleep(1)
 
-    assert True
