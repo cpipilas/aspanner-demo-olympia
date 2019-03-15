@@ -56,6 +56,7 @@ def test_measure_power_consumption():
     time.sleep(1)
 
 
+    print("Measuring Voltage & Current with both Power and Battery Connected")
     print("Bus Voltage:")
     print(testboard.ina219_getValue(INA219.BUS_VOLTAGE_V))
     time.sleep(1)
@@ -67,8 +68,10 @@ def test_measure_power_consumption():
     time.sleep(1)
 
 
+    print("Disconnecting Power")
     testboard.digitalWrite(MAINS_RELAY_PIN, 'LOW')
 
+    print("Measuring Voltage & Current with both Power Disconnected")
     print("Bus Voltage:")
     print(testboard.ina219_getValue(INA219.BUS_VOLTAGE_V))
     time.sleep(1)
