@@ -6,7 +6,7 @@ testboard = SpannerTestboard("OlympiaTestboardEthernet")
 
 
 OUTPUT_PIN_1 = "D2"
-OUTPUT_PIN_2 = "D5"
+OUTPUT_PIN_2 = "D6"
 
 
 
