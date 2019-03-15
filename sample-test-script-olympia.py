@@ -71,7 +71,7 @@ def test_measure_power_consumption():
     time.sleep(1)
 
     assert voltage < 4.6
-    assert current > -160
+    assert current > -400
     # assert current < -90
 
     print("Disconnecting Power")
