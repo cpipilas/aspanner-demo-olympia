@@ -2,7 +2,7 @@ import time
 import pytest
 from SpannerTestboard import SpannerTestboard
 
-testboard = SpannerTestboard("OlympiaTestboardEthernet")
+testboard = SpannerTestboard(" olympia-ina219-test ")
 
 
 BATTERY_RELAY_PIN = "D2"
@@ -19,38 +19,40 @@ def test_measure_power_consumption():
     time.sleep(1)
 
     print("Measuring Voltage & Current with both Power and Battery Connected")
-    print("Bus Voltage:")
-    voltage = testboard.ina219_getValue(INA219.BUS_VOLTAGE_V)
-    print(voltage)
-    time.sleep(1)
+    # print("Bus Voltage:")
+    # voltage = testboard.ina219_getValue(INA219.BUS_VOLTAGE_V)
+    # print(voltage)
+    # time.sleep(1)
 
 
-    print("Current consumption (mA):")
-    current = testboard.ina219_getValue(INA219.CURRENT_MA)
-    print(current)
-    time.sleep(1)
+    for x in range(0, 50):
+        print("Current consumption (mA):")
+        current = testboard.ina219_getValue(INA219.CURRENT_MA)
+        print(current)
+        time.sleep(1)
+
 
     # assert voltage < 4.6
     # assert current > -400
 
 
-    print("Disconnecting Power")
-    testboard.digitalWrite(MAINS_RELAY_PIN, 'LOW')
-    time.sleep(2)
-
-    print("Measuring Voltage & Current with Power Disconnected")
-    print("Bus Voltage:")
-    voltage = testboard.ina219_getValue(INA219.BUS_VOLTAGE_V)
-    print(voltage)
-    time.sleep(1)
-
-    print("Current consumption (mA):")
-    current = testboard.ina219_getValue(INA219.CURRENT_MA)
-    print(current)
-
-    # assert current > 100
-    # assert current < 400
-
-    testboard.digitalWrite(MAINS_RELAY_PIN, 'HIGH')
-    time.sleep(1)
+    # print("Disconnecting Power")
+    # testboard.digitalWrite(MAINS_RELAY_PIN, 'LOW')
+    # time.sleep(2)
+    #
+    # print("Measuring Voltage & Current with Power Disconnected")
+    # print("Bus Voltage:")
+    # voltage = testboard.ina219_getValue(INA219.BUS_VOLTAGE_V)
+    # print(voltage)
+    # time.sleep(1)
+    #
+    # print("Current consumption (mA):")
+    # current = testboard.ina219_getValue(INA219.CURRENT_MA)
+    # print(current)
+    #
+    # # assert current > 100
+    # # assert current < 400
+    #
+    # testboard.digitalWrite(MAINS_RELAY_PIN, 'HIGH')
+    # time.sleep(1)
 
