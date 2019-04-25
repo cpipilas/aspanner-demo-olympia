@@ -2,7 +2,7 @@ import time
 import pytest
 from SpannerTestboard import SpannerTestboard
 
-testboard = SpannerTestboard(" olympia-ina219-test")
+testboard = SpannerTestboard("olympia-ina219-test")
 
 
 BATTERY_RELAY_PIN = "D2"
